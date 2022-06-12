@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+// go包名,目录名
+option go_package = "mygrpc/helloworld";
+
+// 包名
+package helloworld;
+
+// 定义服务名,对应go代码接口名为GoodHelloServer
+service GoodHello {
+  // 暴露的方法名，其中HelloRequest为入参，HelloReply为出参, 普通grpc调用方式（又称一元调用方式）
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// 入参消息体，字段格式： 类型 字段名=不重复的序号
+message HelloRequest {
+  string ids = 1;  //批量数据ID，多个逗号分割
+  int32 page = 2; //页码
+  int32 page_size = 3; //每页记录数
+}
+// 出参消息体
+message HelloReply {
+  string message = 1;
+}
+
