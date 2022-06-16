@@ -37,6 +37,8 @@ cd grpcdemo
 生成grpc代码：
     mkdir pbservices 
     protoc --go_out=plugins=grpc:./pbservices ./pbfiles/hello.proto
+    或者 --proto_path 指定proto文件查找目录,多个目录用冒号分割，默认是protoc命令执行目录：
+        protoc --proto_path=.:./pbfiles/ --go_out=plugins=grpc:./pbservices hello.proto
     文件名hello.proto 生成代码文件名为 hello.pb.go
     
 实现暴露的服务方法： ./services/GoodHello.go

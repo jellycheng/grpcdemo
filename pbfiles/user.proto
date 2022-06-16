@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+// go包名,目录名
+option go_package = "mygrpc/user";
+
+// 包名
+package user;
+
+// 出参消息体
+message UserInfoResp {
+  int64 userid = 1;
+  string username = 2;
+  string pwd = 3;
+  repeated string tags = 4;
+}
+
